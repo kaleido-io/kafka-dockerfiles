@@ -129,6 +129,16 @@
         image: solsson/kafka:nativeagent-kafka-consumer-groups
         volumes: [             ./configs/kafka-consumer-groups:/home/nonroot/native-config ]
         command:
+        - --zookeeper=zoo-0:2181
+        - --group=testgroup
+        - --topic=topic1
+        - --reset-offsets
+        - --to-offset 0
+
+      step7:
+        image: solsson/kafka:nativeagent-kafka-consumer-groups
+        volumes: [             ./configs/kafka-consumer-groups:/home/nonroot/native-config ]
+        command:
         - --bootstrap-server=kafka-0:9092
         - --group=testgroup
         - --topic=topic1
@@ -136,7 +146,7 @@
         - --execute
         - --to-latest
 
-      step7:
+      step8:
         image: solsson/kafka:nativeagent-kafka-consumer-groups
         volumes: [             ./configs/kafka-consumer-groups:/home/nonroot/native-config ]
         command:
