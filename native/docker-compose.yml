@@ -112,7 +112,7 @@
         - --entity-name=topic1
         - --alter
         -   --add-config
-        -     retention.ms=-1
+        -     max.message.bytes=1024
 
       step5:
         image: solsson/kafka:nativeagent-kafka-configs
@@ -153,6 +153,17 @@
         - --bootstrap-server=kafka-0:9092
         - --group=testgroup
         - --describe
+
+      step9:
+        image: solsson/kafka:nativeagent-kafka-configs
+        volumes: [             ./configs/kafka-configs:/home/nonroot/native-config ]
+        command:
+        - --bootstrap-server=kafka-0:9092
+        - --entity-type=topics
+        - --entity-name=topic1
+        - --alter
+        -   --add-config
+        -     max.message.bytes=2048
 
       kafkacat:
         image: edenhill/kafkacat:1.5.0
