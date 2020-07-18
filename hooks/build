@@ -26,7 +26,7 @@ docker build -t solsson/kafka:jre -t "$jre" ./
 PUSH="$PUSH $jre"
 
 nonrootjre=$(imagename jre-nonroot)
-docker build -t solsson/kafka:jre-nonroot -t "$nonrootjre" ./
+docker build -t solsson/kafka:jre-nonroot -t "$nonrootjre" ./jre-nonroot
 PUSH="$PUSH $nonrootjre"
 
 docker build -t solsson/kafka -t "$IMAGE_NAME" ./kafka
