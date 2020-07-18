@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.7_10-jdk-hotspot-bionic@sha256:05df284aea654234eb1de8d8346a0079c33ab03adda1262f92971c39388e99e8 \
+FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:fb1e72f701276b0170cd8f9ba10f74da5053b53df682e6d4728cb8463ef9aeeb \
   as build
 
 ENV CMAK_VERSION=3.0.0.5
@@ -30,7 +30,7 @@ RUN set -ex; \
   rm -rf /var/lib/apt/lists/*; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt
 
-FROM adoptopenjdk:11.0.7_10-jre-hotspot-bionic@sha256:a119e89693cfca250cecc3756c5efb5fdf523d93d813003b3c2a1d29d8884211
+FROM adoptopenjdk:11.0.8_10-jre-hotspot-bionic@sha256:24864d2d79437f775c70fd368c0272a1579a45a81c965e5fdcf0de699c15a054
 
 COPY --from=build /opt/cmak /opt/cmak
 

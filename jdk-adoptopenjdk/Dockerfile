@@ -1,1 +1,1 @@
-FROM adoptopenjdk:11.0.7_10-jdk-hotspot-bionic@sha256:c2ce12d7530d957f2d44dd33339eeeafa3b889c27af0824b186c4afef1f843ef
+FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:fb1e72f701276b0170cd8f9ba10f74da5053b53df682e6d4728cb8463ef9aeeb

@@ -1,7 +1,7 @@
 # same FROM as kafka-jre, to keep pull times down and to provide the same shell distro+version
-FROM ubuntu:bionic@sha256:bec5a2727be7fff3d308193cfde3491f8fba1a2ba392b7546b43a051853a341d
+FROM ubuntu:bionic@sha256:e5b0b89c846690afe2ce325ac6c6bc3d686219cfa82166fc75c812c1011f0803
 
-ENV KUBERNETES_VERSION=1.17.5 KUBERNETES_CLIENT_SHA512=4cf67f972aad3425bccc48af83f8cb59ddcc96de49d3bb21cdbbcbbeee31718ef681e551d13343538a6e70c2a4ea0435e4540bc1f8cf1a91a2f73265f52b9429
+ENV KUBERNETES_VERSION=1.17.9 KUBERNETES_CLIENT_SHA512=57fe9caf9d40e8b3e9e1b58552af1b74bf3cdccb3bd50fb5e51ba95d3e08263dad831724d79f2b99c0d67b03a1e533667422a20ba4159234b3452cdffbb814d4
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
