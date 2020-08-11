@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:fb1e72f701276b0170cd8f9ba10f74da5053b53df682e6d4728cb8463ef9aeeb \
+FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e \
   as build
 
 ENV CMAK_VERSION=3.0.0.5
@@ -13,7 +13,7 @@ RUN set -ex; \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -; \
   echo "deb https://deb.nodesource.com/node_8.x stretch main" > /etc/apt/sources.list.d/nodesource.list; \
    apt-get update && apt install -y --no-install-recommends nodejs; \
-  \ 
+  \
   mkdir -p /opt/cmak-src; \
   curl -SLs "${CMAK_ARCHIVE}" | tar -xzf - --strip-components=1 -C /opt/cmak-src; \
   \
