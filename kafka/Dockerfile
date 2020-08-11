@@ -1,13 +1,6 @@
-FROM curlimages/curl@sha256:aa45e9d93122a3cfdf8d7de272e2798ea63733eeee6d06bd2ee4f2f8c4027d7c \
-  as extralibs
-
-USER root
-RUN curl -sLS -o /zookeeper-3.5.8.jar https://repo1.maven.org/maven2/org/apache/zookeeper/zookeeper/3.5.8/zookeeper-3.5.8.jar
-RUN curl -sLS -o /zookeeper-jute-3.5.8.jar https://repo1.maven.org/maven2/org/apache/zookeeper/zookeeper-jute/3.5.8/zookeeper-jute-3.5.8.jar
-
 FROM adoptopenjdk:11.0.8_10-jre-hotspot-bionic@sha256:24864d2d79437f775c70fd368c0272a1579a45a81c965e5fdcf0de699c15a054
 
-ENV KAFKA_VERSION=2.5.0 SCALA_VERSION=2.12
+ENV KAFKA_VERSION=2.6.0 SCALA_VERSION=2.13
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
@@ -31,9 +24,6 @@ RUN set -ex; \
   apt-get purge -y --auto-remove $buildDeps; \
   rm -rf /var/lib/apt/lists; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt /root/.gnupg
-
-COPY --from=extralibs /zookeeper-3.5.8.jar /opt/kafka/libs/zookeeper-3.5.7.jar
-COPY --from=extralibs /zookeeper-jute-3.5.8.jar /opt/kafka/libs/zookeeper-jute-3.5.7.jar
 
 WORKDIR /opt/kafka
 
