@@ -1,8 +1,8 @@
 FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e
 
 ENV KAFKA_MONITOR_REPO=https://github.com/linkedin/kafka-monitor \
-    KAFKA_MONITOR_VERSION=2.0.4 \
-    KAFKA_MONITOR_SHA256=3713a76a970bd99e72fe8ce1c8be77d4b036057367352265a70ad23b55acef35
+    KAFKA_MONITOR_VERSION=2.3.1 \
+    KAFKA_MONITOR_SHA256=b08f9f531eefe861042164d92fcb88e08cd79f75e227ffd36f17835501a8a362
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
