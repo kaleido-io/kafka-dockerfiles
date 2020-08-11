@@ -40,7 +40,7 @@ RUN native-image \
   org.apache.zookeeper.server.quorum.QuorumPeerMain \
   /home/nonroot/zookeeper-server-start
 
-FROM gcr.io/distroless/base-debian10:nonroot@sha256:56da492c4800196c29f3e9fac3c0e66af146bfd31694f29f0958d6d568139dd9
+FROM gcr.io/distroless/base-debian10:nonroot@sha256:f4a1b1083db512748a305a32ede1d517336c8b5bead1c06c6eac2d40dcaab6ad
 
 COPY --from=native \
   /lib/x86_64-linux-gnu/libz.so.* \
