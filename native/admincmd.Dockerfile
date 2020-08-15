@@ -29,7 +29,7 @@ RUN native-image \
   -H:IncludeResourceBundles=joptsimple.ExceptionMessages \
   -H:ConfigurationFileDirectories=/home/nonroot/native-config \
   # When testing the build for a new version we should remove this one, but then it tends to come back
-  --report-unsupported-elements-at-runtime \
+  --initialize-at-build-time \
   # -D options from entrypoint
   -Djava.awt.headless=true \
   -Dkafka.logs.dir=/opt/kafka/bin/../logs \
