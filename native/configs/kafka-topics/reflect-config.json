@@ -34,6 +34,9 @@
   "methods":[{"name":"remove","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.invoke.VarHandle"
+},
+{
   "name":"kafka.utils.Log4jController",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -73,9 +76,6 @@
 {
   "name":"org.apache.zookeeper.ClientCnxnSocketNIO",
   "methods":[{"name":"<init>","parameterTypes":["org.apache.zookeeper.client.ZKClientConfig"] }]
-},
-{
-  "name":"scala.Tuple2[]"
 },
 {
   "name":"sun.security.provider.ConfigFile",

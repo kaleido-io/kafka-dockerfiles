@@ -36,9 +36,6 @@
   "allDeclaredMethods":true
 },
 {
-  "name":"java.lang.Runnable[]"
-},
-{
   "name":"java.lang.Runtime",
   "methods":[{"name":"version","parameterTypes":[] }]
 },
@@ -60,6 +57,9 @@
 {
   "name":"java.lang.ThreadLocal",
   "methods":[{"name":"remove","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.invoke.VarHandle"
 },
 {
   "name":"java.util.AbstractCollection",
@@ -92,14 +92,8 @@
   "name":"java.util.zip.CRC32C"
 },
 {
-  "name":"kafka.server.DelayedOperationPurgatory$WatcherList[]"
-},
-{
   "name":"kafka.utils.Log4jController",
   "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"kafka.utils.timer.TimerTaskList[]"
 },
 {
   "name":"org.apache.kafka.common.protocol.types.Struct[]"
@@ -150,35 +144,32 @@
   "allDeclaredMethods":true
 },
 {
-  "name":"scala.Serializable",
+  "name":"scala.collection.convert.JavaCollectionWrappers$IterableWrapperTrait",
   "allDeclaredMethods":true
 },
 {
-  "name":"scala.Tuple2[]"
-},
-{
-  "name":"scala.collection.convert.Wrappers$IterableWrapperTrait",
-  "allDeclaredMethods":true
-},
-{
-  "name":"scala.collection.convert.Wrappers$MapWrapper",
+  "name":"scala.collection.convert.JavaCollectionWrappers$MapWrapper",
   "allDeclaredFields":true,
-  "allDeclaredMethods":true
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
-  "name":"scala.collection.convert.Wrappers$MutableBufferWrapper",
+  "name":"scala.collection.convert.JavaCollectionWrappers$MutableBufferWrapper",
   "allDeclaredFields":true,
-  "allDeclaredMethods":true
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
-  "name":"scala.collection.convert.Wrappers$MutableMapWrapper",
+  "name":"scala.collection.convert.JavaCollectionWrappers$MutableMapWrapper",
   "allDeclaredFields":true,
-  "allDeclaredMethods":true
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
-  "name":"scala.collection.convert.Wrappers$SeqWrapper",
+  "name":"scala.collection.convert.JavaCollectionWrappers$SeqWrapper",
   "allDeclaredFields":true,
-  "allDeclaredMethods":true
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
   "name":"sun.misc.Signal",
