@@ -166,6 +166,12 @@
         -   --add-config
         -     max.message.bytes=2048
 
+      step10:
+        image: solsson/kafka:nativeagent-kafka-consumer-groups
+        volumes: [             ./configs/kafka-consumer-groups:/home/nonroot/native-config ]
+        command:
+        - --intentionally wrong
+
       kafkacat:
         image: edenhill/kafkacat:1.5.0
         depends_on:
