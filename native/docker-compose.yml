@@ -133,7 +133,8 @@
         - --group=testgroup
         - --topic=topic1
         - --reset-offsets
-        - --to-offset 0
+        - --to-offset=0
+        #- --execute intentionally left out, for the dry-run use case
 
       step7:
         image: solsson/kafka:nativeagent-kafka-consumer-groups
