@@ -38,6 +38,9 @@ RUN native-image \
   --initialize-at-run-time=org.apache.zookeeper.server.persistence.FileTxnLog \
   --initialize-at-run-time=org.apache.zookeeper.server.persistence.TxnLogToolkit \
   --initialize-at-run-time=org.apache.zookeeper.server.persistence.FilePadding \
+  # Can we instantiate at build time things that depend on config file contents?
+  --initialize-at-run-time=org.apache.zookeeper.server.quorum.Leader \
+  --initialize-at-run-time=org.apache.zookeeper.server.ZooKeeperServer \
   # Added because of io.netty.buffer.Unpooled.wrappedBuffer(byte[]), org.eclipse.jetty.servlet.ServletContextHandler.<init>(int)
   --allow-incomplete-classpath \
   # -D options from entrypoint
