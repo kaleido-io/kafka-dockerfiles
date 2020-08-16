@@ -22,28 +22,17 @@ Call path from entry point to kafka.metrics.KafkaYammerMetrics.defaultRegistry()
 	... 8 more
 */
 
-//import scala.collection.Map;
-import java.util.Map;
-
-/*
 import com.yammer.metrics.core.MetricsRegistry;
 
-@TargetClass(className = "scala.collection.immutable.VM")
-class JMX {
-
-  @Substitute
-  public static MetricsRegistry defaultRegistry() {
-    return null;
-  }
-
-}
-*/
-
-@TargetClass(className = "kafka.metrics.KafkaMetricsGroup")
+@TargetClass(className = "kafka.metrics.KafkaYammerMetrics")
 final class NoJMX {
 
   @Substitute
-  public void removeMetric(String name, Map<String, String> tags) {
+  public static MetricsRegistry defaultRegistry() {
+	throw new UnsupportedOperationException("Metrics unsupported in native-image builds, see https://github.com/solsson/dockerfiles/pull/31");
   }
+
+  // https://github.com/apache/kafka/blob/2.6.0/core/src/main/scala/kafka/metrics/KafkaMetricsGroup.scala#L67
+  // ... could be stubbed but we'd need to stub all the return types also
 
 }
