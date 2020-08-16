@@ -40,7 +40,7 @@ class JMX {
 */
 
 @TargetClass(className = "kafka.metrics.KafkaMetricsGroup")
-class JMX {
+final class NoJMX {
 
   @Substitute
   public void removeMetric(String name, Map<String, String> tags) {

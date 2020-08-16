@@ -1,3 +1,9 @@
+FROM solsson/kafka:graalvm as substitutions
+
+WORKDIR /workspace
+COPY substitutions/admincmd .
+RUN mvn package
+
 FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e \
   as nonlibs
 RUN echo "class Empty {public static void main(String[] a){}}" > Empty.java && javac Empty.java && jar --create --file /empty.jar Empty.class
@@ -13,6 +19,7 @@ FROM solsson/kafka:nativebase as native
 
 ARG classpath=/opt/kafka/libs/extensions/*:/opt/kafka/libs/*
 
+COPY --from=substitutions /workspace/target/*.jar /opt/kafka/libs/extensions/substitutions.jar
 COPY --from=extralibs /*.jar /opt/kafka/libs/extensions/
 
 # docker run --rm --entrypoint ls solsson/kafka -l /opt/kafka/libs/ | grep log

@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.repos.substitutions.kafka</groupId>
-  <artifactId>admincmd</artifactId>
+  <artifactId>admincmd-substitutions</artifactId>
   <version>1.0.0</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
