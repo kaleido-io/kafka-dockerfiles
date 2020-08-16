@@ -22,6 +22,9 @@ Call path from entry point to kafka.metrics.KafkaYammerMetrics.defaultRegistry()
 	... 8 more
 */
 
+//import scala.collection.Map;
+import java.util.Map;
+
 /*
 import com.yammer.metrics.core.MetricsRegistry;
 
@@ -40,7 +43,7 @@ class JMX {
 class JMX {
 
   @Substitute
-  public void removeMetric(String name, scala.collection.Map<String, String> tags) {
+  public void removeMetric(String name, Map<String, String> tags) {
   }
 
 }
