@@ -34,11 +34,8 @@ RUN native-image \
   -H:+ReportExceptionStackTraces \
   --no-fallback \
   -H:ConfigurationFileDirectories=/home/nonroot/native-config \
-  # Incompatible change of initialization policy for javax.net.ssl.SSLContext: trying to change BUILD_TIME from the command line to RERUN for substitutions
-  #--initialize-at-build-time=javax.net.ssl.SSLContext \
-  --enable-http --enable-https \
-  # https://quarkus.io/guides/native-and-ssl
-  -H:EnableURLProtocols=http,https --enable-all-security-services -H:+JNI \
+  # Added because of org.apache.zookeeper.common.X509Util, org.apache.zookeeper.common.ZKConfig, javax.net.ssl.SSLContext ...
+  --allow-incomplete-classpath \
   # -D options from entrypoint
   -Djava.awt.headless=true \
   -Dkafka.logs.dir=/opt/kafka/bin/../logs \
