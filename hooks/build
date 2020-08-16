@@ -7,7 +7,7 @@ PUSH=""
 [ -z "$IMAGE_NAME" ] && echo "IMAGE_NAME is required" && exit 1;
 
 # Nativeagent is a prerequisite of native, but meant to run locally with result json and Dockerfiles commited
-# NOPUSH=true IMAGE_NAME=solsson/kafka:nativeagentagent ./hooks/build
+# NOPUSH=true IMAGE_NAME=solsson/kafka:nativeagent ./hooks/build
 [ -z "$NATIVEAGENT" ] && echo $IMAGE_NAME | grep 'nativeagent$' && NATIVEAGENT=true
 # Docker Hub builds with tags ending with "native"
 [ -z "$NATIVE" ] && echo $IMAGE_NAME | grep 'native$' && NATIVE=true
@@ -40,8 +40,8 @@ graalvm=$(imagename graalvm)
 docker build -t solsson/kafka:graalvm -t "$graalvm" ./jdk-adoptopenjdk-graalvm
 PUSH="$PUSH $graalvm"
 
-nativeagent=$(imagename nativebase)
-docker build -t solsson/kafka:nativebase -t "$nativeagent" ./native
+nativebase=$(imagename nativebase)
+docker build -t solsson/kafka:nativebase -t "$nativebase" ./native
 
 initutils=$(imagename initutils)
 docker build -t solsson/kafka:initutils -t "$initutils" ./initutils
@@ -87,7 +87,7 @@ function entrypoint_gen {
 
   [ "$NATIVEAGENT" != "true" ] || {
     cp $dfile native/$dfile
-    sed -i "s|FROM .*|FROM $nativeagent|" native/$dfile
+    sed -i "s|FROM .*|FROM $nativebase|" native/$dfile
     sed -i 's|  , "-cp" \\|  , "-agentpath:/opt/graalvm/lib/libnative-image-agent.so=config-merge-dir=/home/nonroot/native-config" \\\
   , "-cp" \\|' native/$dfile
     docker build -t $image -f native/$dfile ./native
