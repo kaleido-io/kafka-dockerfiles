@@ -1,3 +1,9 @@
+FROM solsson/kafka:graalvm as substitutions
+
+WORKDIR /workspace
+COPY substitutions/zookeeper-server-start .
+RUN mvn package
+
 FROM curlimages/curl@sha256:aa45e9d93122a3cfdf8d7de272e2798ea63733eeee6d06bd2ee4f2f8c4027d7c \
   as extralibs
 
@@ -8,8 +14,9 @@ RUN curl -sLS -o /log4j-over-slf4j-1.7.30.jar https://repo1.maven.org/maven2/org
 FROM solsson/kafka:nativebase as native
 
 #ARG classpath=/opt/kafka/libs/slf4j-log4j12-1.7.30.jar:/opt/kafka/libs/log4j-1.2.17.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
+COPY --from=substitutions /workspace/target/*.jar /opt/kafka/libs/substitutions.jar
 COPY --from=extralibs /*.jar /opt/kafka/libs/extensions/
-ARG classpath=/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
+ARG classpath=/opt/kafka/libs/substitutions.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
 
 COPY configs/zookeeper-server-start /home/nonroot/native-config
 
