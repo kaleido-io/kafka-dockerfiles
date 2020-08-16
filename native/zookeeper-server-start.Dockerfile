@@ -16,7 +16,7 @@ FROM solsson/kafka:nativebase as native
 #ARG classpath=/opt/kafka/libs/slf4j-log4j12-1.7.30.jar:/opt/kafka/libs/log4j-1.2.17.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
 COPY --from=substitutions /workspace/target/*.jar /opt/kafka/libs/extensions/substitutions.jar
 COPY --from=extralibs /*.jar /opt/kafka/libs/extensions/
-ARG classpath=/opt/kafka/libs/extensions/substitutions.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
+ARG classpath=/opt/kafka/libs/extensions/substitutions.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar:/opt/kafka/libs/netty-common-4.1.50.Final.jar:/opt/kafka/libs/netty-handler-4.1.50.Final.jar:/opt/kafka/libs/netty-buffer-4.1.50.Final.jar
 
 COPY configs/zookeeper-server-start /home/nonroot/native-config
 
