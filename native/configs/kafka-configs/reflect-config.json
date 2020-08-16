@@ -49,6 +49,9 @@
   "methods":[{"name":"remove","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.invoke.VarHandle"
+},
+{
   "name":"java.util.AbstractMap",
   "allDeclaredFields":true,
   "allDeclaredMethods":true
@@ -102,16 +105,10 @@
   "methods":[{"name":"<init>","parameterTypes":["org.apache.zookeeper.client.ZKClientConfig"] }]
 },
 {
-  "name":"scala.Serializable",
-  "allDeclaredMethods":true
-},
-{
-  "name":"scala.Tuple2[]"
-},
-{
-  "name":"scala.collection.convert.Wrappers$MapWrapper",
+  "name":"scala.collection.convert.JavaCollectionWrappers$MapWrapper",
   "allDeclaredFields":true,
-  "allDeclaredMethods":true
+  "allDeclaredMethods":true,
+  "allDeclaredConstructors":true
 },
 {
   "name":"sun.security.provider.ConfigFile",

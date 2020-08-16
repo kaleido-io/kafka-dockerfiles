@@ -133,7 +133,8 @@
         - --group=testgroup
         - --topic=topic1
         - --reset-offsets
-        - --to-offset 0
+        - --to-offset=0
+        #- --execute intentionally left out, for the dry-run use case
 
       step7:
         image: solsson/kafka:nativeagent-kafka-consumer-groups
@@ -164,6 +165,12 @@
         - --alter
         -   --add-config
         -     max.message.bytes=2048
+
+      step10:
+        image: solsson/kafka:nativeagent-kafka-consumer-groups
+        volumes: [             ./configs/kafka-consumer-groups:/home/nonroot/native-config ]
+        command:
+        - --intentionally wrong
 
       kafkacat:
         image: edenhill/kafkacat:1.5.0

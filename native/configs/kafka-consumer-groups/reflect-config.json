@@ -12,6 +12,9 @@
   "methods":[{"name":"getContextClassLoader","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.invoke.VarHandle"
+},
+{
   "name":"kafka.admin.ConsumerGroupCommand$PartitionAssignmentState[]"
 },
 {

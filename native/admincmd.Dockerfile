@@ -1,3 +1,9 @@
+FROM solsson/kafka:graalvm as substitutions
+
+WORKDIR /workspace
+COPY substitutions/admincmd .
+RUN mvn package
+
 FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e \
   as nonlibs
 RUN echo "class Empty {public static void main(String[] a){}}" > Empty.java && javac Empty.java && jar --create --file /empty.jar Empty.class
@@ -7,12 +13,13 @@ FROM curlimages/curl@sha256:aa45e9d93122a3cfdf8d7de272e2798ea63733eeee6d06bd2ee4
 
 USER root
 RUN curl -sLS -o /slf4j-nop-1.7.30.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/1.7.30/slf4j-nop-1.7.30.jar
-RUN curl -sLS -o /quarkus-kafka-client-1.6.0.Final.jar https://repo1.maven.org/maven2/io/quarkus/quarkus-kafka-client/1.6.0.Final/quarkus-kafka-client-1.6.0.Final.jar
+RUN curl -sLS -o /quarkus-kafka-client-1.7.0.Final.jar https://repo1.maven.org/maven2/io/quarkus/quarkus-kafka-client/1.7.0.Final/quarkus-kafka-client-1.7.0.Final.jar
 
 FROM solsson/kafka:nativebase as native
 
 ARG classpath=/opt/kafka/libs/extensions/*:/opt/kafka/libs/*
 
+COPY --from=substitutions /workspace/target/*.jar /opt/kafka/libs/extensions/substitutions.jar
 COPY --from=extralibs /*.jar /opt/kafka/libs/extensions/
 
 # docker run --rm --entrypoint ls solsson/kafka -l /opt/kafka/libs/ | grep log
@@ -29,8 +36,7 @@ RUN native-image \
   -H:IncludeResourceBundles=joptsimple.ExceptionMessages \
   -H:ConfigurationFileDirectories=/home/nonroot/native-config \
   # When testing the build for a new version we should remove this one, but then it tends to come back
-  --allow-incomplete-classpath \
-  --report-unsupported-elements-at-runtime \
+  --initialize-at-build-time \
   # -D options from entrypoint
   -Djava.awt.headless=true \
   -Dkafka.logs.dir=/opt/kafka/bin/../logs \

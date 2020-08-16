@@ -33,6 +33,6 @@ $compose up -d kafka-0
 $compose up -d kafkacat
 $compose ps
 
-for step in $(seq 1 9); do
+for step in $(seq 1 10); do
   $compose up step$step
 done

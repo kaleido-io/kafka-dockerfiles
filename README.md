@@ -74,6 +74,7 @@ Very experimental.
 NOPUSH=true IMAGE_NAME=solsson/kafka:nativeagent ./hooks/build
 docker-compose -f native/docker-compose.yml down
 docker run --rm --entrypoint chown -v $(pwd)/native/configs:/configs busybox -R $(id -u) /configs
+# after reviewing config changes with git add -p native/configs
 NOPUSH=true IMAGE_NAME=solsson/kafka:native ./hooks/build
 ```
 

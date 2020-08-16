@@ -4,9 +4,6 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"io.netty.util.internal.logging.Log4J2Logger"
-},
-{
   "name":"java.lang.Integer",
   "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
 },
@@ -32,6 +29,9 @@
 {
   "name":"java.lang.ThreadLocal",
   "methods":[{"name":"remove","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.invoke.VarHandle"
 },
 {
   "name":"kafka.utils.Log4jController",
@@ -73,9 +73,6 @@
 {
   "name":"org.apache.zookeeper.ClientCnxnSocketNIO",
   "methods":[{"name":"<init>","parameterTypes":["org.apache.zookeeper.client.ZKClientConfig"] }]
-},
-{
-  "name":"scala.Tuple2[]"
 },
 {
   "name":"sun.security.provider.ConfigFile",
