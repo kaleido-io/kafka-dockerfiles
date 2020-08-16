@@ -34,6 +34,10 @@ RUN native-image \
   -H:+ReportExceptionStackTraces \
   --no-fallback \
   -H:ConfigurationFileDirectories=/home/nonroot/native-config \
+  --initialize-at-build-time \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.FileTxnLog \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.TxnLogToolkit \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.FilePadding \
   # Added because of org.apache.zookeeper.common.X509Util, org.apache.zookeeper.common.ZKConfig, javax.net.ssl.SSLContext ...
   --allow-incomplete-classpath \
   # -D options from entrypoint
