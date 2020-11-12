@@ -16,14 +16,10 @@ FROM solsson/kafka:nativebase as native
 #ARG classpath=/opt/kafka/libs/slf4j-log4j12-1.7.30.jar:/opt/kafka/libs/log4j-1.2.17.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar
 COPY --from=substitutions /workspace/target/*.jar /opt/kafka/libs/extensions/substitutions.jar
 COPY --from=extralibs /*.jar /opt/kafka/libs/extensions/
-ARG classpath=/opt/kafka/libs/extensions/substitutions.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar:/opt/kafka/libs/netty-common-4.1.50.Final.jar:/opt/kafka/libs/netty-handler-4.1.50.Final.jar:/opt/kafka/libs/netty-buffer-4.1.50.Final.jar
+# For running without JettyAdminServer we're probably fine with only substitutions + slf4j + zokeeper+zookeeper-jute; see https://github.com/solsson/dockerfiles/pull/31
+ARG classpath=/opt/kafka/libs/extensions/substitutions.jar:/opt/kafka/libs/slf4j-api-1.7.30.jar:/opt/kafka/libs/extensions/slf4j-simple-1.7.30.jar:/opt/kafka/libs/extensions/log4j-over-slf4j-1.7.30.jar:/opt/kafka/libs/zookeeper-3.5.8.jar:/opt/kafka/libs/zookeeper-jute-3.5.8.jar:/opt/kafka/libs/jetty-server-9.4.24.v20191120.jar:/opt/kafka/libs/jetty-util-9.4.24.v20191120.jar:/opt/kafka/libs/jetty-io-9.4.24.v20191120.jar:/opt/kafka/libs/jetty-http-9.4.24.v20191120.jar:/opt/kafka/libs/jetty-servlet-9.4.24.v20191120.jar:/opt/kafka/libs/jetty-security-9.4.24.v20191120.jar:/opt/kafka/libs/netty-common-4.1.50.Final.jar:/opt/kafka/libs/netty-handler-4.1.50.Final.jar:/opt/kafka/libs/netty-buffer-4.1.50.Final.jar:/opt/kafka/libs/javax.servlet-api-3.1.0.jar:/opt/kafka/libs/jackson-core-2.10.2.jar:/opt/kafka/libs/jackson-databind-2.10.2.jar:/opt/kafka/libs/jackson-annotations-2.10.2.jar
 
 COPY configs/zookeeper-server-start /home/nonroot/native-config
-
-# Remaining issues:
-# - java.lang.NoClassDefFoundError: Could not initialize class org.apache.zookeeper.server.admin.JettyAdminServer
-#   which is fine because https://github.com/apache/zookeeper/blob/release-3.5.7/zookeeper-server/src/main/java/org/apache/zookeeper/server/admin/AdminServerFactory.java
-#   documents that admin server is optional and it's only at startup
 
 RUN native-image \
   --no-server \
@@ -31,7 +27,11 @@ RUN native-image \
   -H:+ReportExceptionStackTraces \
   --no-fallback \
   -H:ConfigurationFileDirectories=/home/nonroot/native-config \
-  # Added because of org.apache.zookeeper.common.X509Util, org.apache.zookeeper.common.ZKConfig, javax.net.ssl.SSLContext ...
+  --initialize-at-build-time \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.FileTxnLog \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.TxnLogToolkit \
+  --initialize-at-run-time=org.apache.zookeeper.server.persistence.FilePadding \
+  # Added because of io.netty.buffer.Unpooled.wrappedBuffer(byte[]), org.eclipse.jetty.servlet.ServletContextHandler.<init>(int)
   --allow-incomplete-classpath \
   # -D options from entrypoint
   -Djava.awt.headless=true \
