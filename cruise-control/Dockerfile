@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e
+FROM adoptopenjdk:11.0.9_11-jdk-hotspot-focal@sha256:22fda5482af1e2364248517a9d22991cecd640965938828534e5233b8d9b13eb
 ARG VERSION=2.0.95
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates
@@ -21,7 +21,7 @@ RUN npm install
 RUN npm run build
 
 # The container is made to work with github.com/Yolean/kubernetes-kafka, so we try to use a common base
-FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e
+FROM adoptopenjdk:11.0.9_11-jdk-hotspot-focal@sha256:22fda5482af1e2364248517a9d22991cecd640965938828534e5233b8d9b13eb
 ARG SOURCE_REF
 ARG SOURCE_TYPE
 ARG DOCKERFILE_PATH

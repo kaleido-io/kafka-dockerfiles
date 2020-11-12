@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.8_10-jre-hotspot-bionic@sha256:24864d2d79437f775c70fd368c0272a1579a45a81c965e5fdcf0de699c15a054
+FROM adoptopenjdk:11.0.9_11-jre-hotspot-focal@sha256:f20df8e98a28a75b69f770be59b8431c2f878c29156fc8453fa0c5978857f3aa
 
 ENV EXPORTER_VERSION=76cf1bf03c4cd4a050eb089f37af6a8af15abf0a
 ENV EXPORTER_REPO=github.com/prometheus/jmx_exporter

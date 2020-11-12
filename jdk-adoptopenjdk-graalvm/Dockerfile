@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.8_10-jdk-hotspot-bionic@sha256:0513c0a82a82d1c9f4bfed18ef57bd5551ced2656342426a772c4772286dae1e
+FROM adoptopenjdk:11.0.9_11-jdk-hotspot-focal@sha256:22fda5482af1e2364248517a9d22991cecd640965938828534e5233b8d9b13eb
 
 COPY --from=maven:3.6.3-jdk-11-slim@sha256:18f059e73cffdf1688093e2e82f1001a7cd2baa9de92e7b8d05bf34a8318ee92 \
   /usr/share/maven /usr/share/maven
@@ -9,7 +9,7 @@ ENV MAVEN_CONFIG=/root/.m2
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
   runDeps='ca-certificates netcat-openbsd libsnappy1v5 liblz4-1 libzstd1'; \
-  buildDeps='curl gnupg dirmngr gcc libc6-dev zlib1g-dev libsnappy-dev liblz4-dev libzstd1-dev'; \
+  buildDeps='curl gnupg dirmngr gcc libc6-dev zlib1g-dev libsnappy-dev liblz4-dev libzstd-dev'; \
   apt-get update && apt-get install -y $runDeps $buildDeps --no-install-recommends; \
   \
   # Keeping build deps for native compile
