@@ -9,7 +9,7 @@ ENV MAVEN_CONFIG=/root/.m2
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
   runDeps='ca-certificates netcat-openbsd libsnappy1v5 liblz4-1 libzstd1'; \
-  buildDeps='curl gnupg dirmngr gcc libc6-dev zlib1g-dev libsnappy-dev liblz4-dev libzstd-dev'; \
+  buildDeps='curl gnupg dirmngr build-essential zlib1g-dev libsnappy-dev liblz4-dev libzstd-dev'; \
   apt-get update && apt-get install -y $runDeps $buildDeps --no-install-recommends; \
   \
   # Keeping build deps for native compile

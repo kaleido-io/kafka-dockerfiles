@@ -45,7 +45,7 @@ RUN native-image \
   {{mainclass}} \
   /home/nonroot/{{command}}
 
-FROM gcr.io/distroless/base-debian10:nonroot@sha256:f4a1b1083db512748a305a32ede1d517336c8b5bead1c06c6eac2d40dcaab6ad
+FROM gcr.io/distroless/base-debian10:nonroot@sha256:4ecb92a78f71a48c681a4d219a9ede869afd6dbedf27bc5dea44aa3e1a38ccea
 
 COPY --from=native \
   /lib/x86_64-linux-gnu/libz.so.* \
