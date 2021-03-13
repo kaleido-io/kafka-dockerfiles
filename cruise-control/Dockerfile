@@ -1,5 +1,5 @@
 FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:30f365f93818de7d30c624077a5e06f06b775eb1b042c1eecf132fb2f93771f7
-ARG VERSION=2.0.95
+ARG VERSION=2.0.155
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates
 RUN git clone -b ${VERSION} https://github.com/linkedin/cruise-control.git
