@@ -1,5 +1,98 @@
 [
 {
+  "name":"boolean[]"
+},
+{
+  "name":"byte[]"
+},
+{
+  "name":"char[]"
+},
+{
+  "name":"com.sun.management.GarbageCollectorMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.GcInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.HotSpotDiagnosticMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.ThreadMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.UnixOperatingSystemMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.VMOption",
+  "allPublicMethods":true
+},
+{
+  "name":"com.sun.management.internal.GarbageCollectorExtImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"com.sun.management.internal.HotSpotDiagnostic",
+  "allPublicConstructors":true
+},
+{
+  "name":"com.sun.management.internal.HotSpotThreadImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"com.sun.management.internal.OperatingSystemImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"double[]"
+},
+{
+  "name":"float[]"
+},
+{
+  "name":"int[]"
+},
+{
+  "name":"java.beans.PropertyVetoException"
+},
+{
+  "name":"java.lang.Boolean",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Byte",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Character",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Double",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Float",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Integer",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Long",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.Object",
+  "allPublicMethods":true
+},
+{
   "name":"java.lang.Runtime",
   "methods":[{"name":"version","parameterTypes":[] }]
 },
@@ -8,7 +101,18 @@
   "methods":[{"name":"major","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.Short",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.StackTraceElement",
+  "allPublicMethods":true
+},
+{
   "name":"java.lang.String"
+},
+{
+  "name":"java.lang.String[]"
 },
 {
   "name":"java.lang.Thread",
@@ -19,24 +123,165 @@
   "methods":[{"name":"remove","parameterTypes":[] }]
 },
 {
+  "name":"java.lang.Void",
+  "fields":[{"name":"TYPE"}]
+},
+{
+  "name":"java.lang.management.BufferPoolMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.ClassLoadingMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.CompilationMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.LockInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.ManagementPermission",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.lang.management.MemoryMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.MemoryManagerMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.MemoryPoolMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.MemoryUsage",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.MonitorInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.PlatformLoggingMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.RuntimeMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.management.ThreadInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"java.math.BigDecimal"
+},
+{
+  "name":"java.math.BigInteger"
+},
+{
+  "name":"java.util.Date"
+},
+{
+  "name":"java.util.PropertyPermission",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String"] }]
+},
+{
+  "name":"java.util.logging.LogManager",
+  "methods":[{"name":"getLoggingMXBean","parameterTypes":[] }]
+},
+{
+  "name":"java.util.logging.LoggingMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"javax.management.MBeanOperationInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"javax.management.MBeanServerBuilder",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"javax.management.ObjectName"
+},
+{
+  "name":"javax.management.openmbean.CompositeData"
+},
+{
+  "name":"javax.management.openmbean.CompositeData[]"
+},
+{
+  "name":"javax.management.openmbean.OpenMBeanOperationInfoSupport"
+},
+{
+  "name":"javax.management.openmbean.TabularData"
+},
+{
+  "name":"jdk.management.jfr.ConfigurationInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"jdk.management.jfr.EventTypeInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"jdk.management.jfr.FlightRecorderMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"jdk.management.jfr.FlightRecorderMXBeanImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"jdk.management.jfr.RecordingInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"jdk.management.jfr.SettingDescriptorInfo",
+  "allPublicMethods":true
+},
+{
+  "name":"long[]"
+},
+{
   "name":"org.apache.log4j.Appender"
+},
+{
+  "name":"org.apache.log4j.AppenderSkeleton",
+  "allPublicMethods":true
 },
 {
   "name":"org.apache.log4j.Category",
   "methods":[{"name":"getName","parameterTypes":[] }]
 },
 {
+  "name":"org.apache.log4j.CategoryKey"
+},
+{
   "name":"org.apache.log4j.ConsoleAppender",
+  "allPublicMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"org.apache.log4j.Layout"
+  "name":"org.apache.log4j.Hierarchy",
+  "methods":[{"name":"getCurrentLoggers","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.log4j.Layout",
+  "allPublicMethods":true
 },
 {
   "name":"org.apache.log4j.Level"
 },
 {
-  "name":"org.apache.log4j.LogManager"
+  "name":"org.apache.log4j.LogManager",
+  "methods":[{"name":"getLoggerRepository","parameterTypes":[] }]
 },
 {
   "name":"org.apache.log4j.Logger",
@@ -44,17 +289,133 @@
 },
 {
   "name":"org.apache.log4j.PatternLayout",
+  "allPublicMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.apache.log4j.Priority"
 },
 {
+  "name":"org.apache.log4j.WriterAppender",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.log4j.jmx.AppenderDynamicMBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.log4j.jmx.HierarchyDynamicMBean",
+  "allPublicConstructors":true,
+  "methods":[{"name":"addLoggerMBean","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"org.apache.log4j.jmx.LayoutDynamicMBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.log4j.jmx.LoggerDynamicMBean",
+  "allPublicConstructors":true
+},
+{
   "name":"org.apache.log4j.spi.OptionHandler"
+},
+{
+  "name":"org.apache.log4j.spi.RootLogger"
+},
+{
+  "name":"org.apache.zookeeper.server.ConnectionBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.ConnectionMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.zookeeper.server.DataTreeBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.DataTreeMXBean",
+  "allPublicMethods":true
 },
 {
   "name":"org.apache.zookeeper.server.NIOServerCnxnFactory",
   "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LeaderBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LeaderElectionBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LeaderElectionMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LeaderMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LocalPeerBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.LocalPeerMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.QuorumBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.QuorumMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.RemotePeerBean",
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.zookeeper.server.quorum.RemotePeerMXBean",
+  "allPublicMethods":true
+},
+{
+  "name":"short[]"
+},
+{
+  "name":"sun.management.ClassLoadingImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.CompilationImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.ManagementFactoryHelper$1",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.ManagementFactoryHelper$PlatformLoggingImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.MemoryImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.MemoryManagerImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.MemoryPoolImpl",
+  "allPublicConstructors":true
+},
+{
+  "name":"sun.management.RuntimeImpl",
+  "allPublicConstructors":true
 },
 {
   "name":"sun.security.provider.ConfigFile",

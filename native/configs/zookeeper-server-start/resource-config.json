@@ -1,4 +1,5 @@
 {
-  "resources":[{"pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"}],
+  "resources":{
+  "includes":[{"pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"}]},
   "bundles":[]
 }
