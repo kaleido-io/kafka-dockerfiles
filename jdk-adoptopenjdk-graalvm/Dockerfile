@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:30f365f93818de7d30c624077a5e06f06b775eb1b042c1eecf132fb2f93771f7
+FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:1b096123dbc4defed38158ce560d75b181b86ed8bef94530d399c414e48ce8d5
 
 COPY --from=maven:3.6.3-adoptopenjdk-11@sha256:1f07812fb5bba1371fd743bbcd2053fa3324c1b7f463fe7516a646c87852c4cf \
   /usr/share/maven /usr/share/maven
