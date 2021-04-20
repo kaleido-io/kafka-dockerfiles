@@ -1,6 +1,6 @@
 FROM adoptopenjdk:11.0.10_9-jre-hotspot-focal@sha256:c365d39341f54bd64f4eadce7aa2f2251743dba4bfb7bd2e0a6fc7b76eeba25e
 
-ENV KAFKA_VERSION=2.7.0 SCALA_VERSION=2.13
+ENV KAFKA_VERSION=2.8.0 SCALA_VERSION=2.13
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
