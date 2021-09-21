@@ -33,6 +33,12 @@ We avoid environment variable rules for config override, used in [wurstmeister](
 Earlier images used `./bin/kafka-server-start.sh` as entrypoint
 and had the `zookeeper.connect=zookeeper:2181` (instead of localhost:2181) built in. At upgrade use the command recommended above to restore that functionality.
 
+## Build locally
+
+```
+SOURCE_COMMIT=$(git rev-parse HEAD) NOPUSH=true IMAGE_NAME=solsson/kafka:latest ./hooks/build
+```
+
 ## Build and test locally
 
 To build your own kafka image simply run `docker build ./kafka`.
