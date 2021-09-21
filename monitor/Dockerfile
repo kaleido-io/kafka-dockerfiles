@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:1b096123dbc4defed38158ce560d75b181b86ed8bef94530d399c414e48ce8d5
+FROM eclipse-temurin:11.0.12_7-jdk-focal@sha256:96d5ec0cd4685fa17731c2ae6206cd9ece0ec9908a36ffb73e43383e37b17824
 
 ENV KAFKA_MONITOR_REPO=https://github.com/linkedin/kafka-monitor \
     KAFKA_MONITOR_VERSION=2.3.1 \

@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:1b096123dbc4defed38158ce560d75b181b86ed8bef94530d399c414e48ce8d5 \
+FROM eclipse-temurin:11.0.12_7-jdk-focal@sha256:96d5ec0cd4685fa17731c2ae6206cd9ece0ec9908a36ffb73e43383e37b17824 \
   as build
 
 ENV CMAK_VERSION=3.0.0.5
@@ -30,7 +30,7 @@ RUN set -ex; \
   rm -rf /var/lib/apt/lists/*; \
   rm -rf /var/log/dpkg.log /var/log/alternatives.log /var/log/apt
 
-FROM adoptopenjdk:11.0.10_9-jre-hotspot-focal@sha256:c365d39341f54bd64f4eadce7aa2f2251743dba4bfb7bd2e0a6fc7b76eeba25e
+FROM eclipse-temurin:11.0.12_7-jre-focal@sha256:23d5cad605d1d2ef79098016397e1c8fb993d28df79cf41c40a6904ae779f4ec
 
 COPY --from=build /opt/cmak /opt/cmak
 

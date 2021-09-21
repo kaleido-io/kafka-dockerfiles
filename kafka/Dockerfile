@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jre-hotspot-focal@sha256:c365d39341f54bd64f4eadce7aa2f2251743dba4bfb7bd2e0a6fc7b76eeba25e
+FROM eclipse-temurin:11.0.12_7-jre-focal@sha256:23d5cad605d1d2ef79098016397e1c8fb993d28df79cf41c40a6904ae779f4ec
 
 ENV KAFKA_VERSION=2.8.0 SCALA_VERSION=2.13
 

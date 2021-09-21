@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:1b096123dbc4defed38158ce560d75b181b86ed8bef94530d399c414e48ce8d5
+FROM eclipse-temurin:11.0.12_7-jdk-focal@sha256:96d5ec0cd4685fa17731c2ae6206cd9ece0ec9908a36ffb73e43383e37b17824
 ARG VERSION=2.0.155
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates
@@ -21,7 +21,7 @@ RUN npm install
 RUN npm run build
 
 # The container is made to work with github.com/Yolean/kubernetes-kafka, so we try to use a common base
-FROM adoptopenjdk:11.0.10_9-jdk-hotspot-focal@sha256:1b096123dbc4defed38158ce560d75b181b86ed8bef94530d399c414e48ce8d5
+FROM eclipse-temurin:11.0.12_7-jdk-focal@sha256:96d5ec0cd4685fa17731c2ae6206cd9ece0ec9908a36ffb73e43383e37b17824
 ARG SOURCE_REF
 ARG SOURCE_TYPE
 ARG DOCKERFILE_PATH
