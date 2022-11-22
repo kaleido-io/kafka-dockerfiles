@@ -36,12 +36,12 @@ nonroot=$(imagename nonroot)
 docker build -t solsson/kafka:nonroot -t "$nonroot" ./kafka-nonroot
 PUSH="$PUSH $nonroot"
 
-graalvm=$(imagename graalvm)
-docker build -t solsson/kafka:graalvm -t "$graalvm" ./jdk-adoptopenjdk-graalvm
-PUSH="$PUSH $graalvm"
+# graalvm=$(imagename graalvm)
+# docker build -t solsson/kafka:graalvm -t "$graalvm" ./jdk-adoptopenjdk-graalvm
+# PUSH="$PUSH $graalvm"
 
-nativebase=$(imagename nativebase)
-docker build -t solsson/kafka:nativebase -t "$nativebase" ./native
+# nativebase=$(imagename nativebase)
+# docker build -t solsson/kafka:nativebase -t "$nativebase" ./native
 
 initutils=$(imagename initutils)
 docker build -t solsson/kafka:initutils -t "$initutils" ./initutils

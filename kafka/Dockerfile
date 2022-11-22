@@ -1,6 +1,6 @@
 FROM eclipse-temurin:11.0.12_7-jre-focal@sha256:23d5cad605d1d2ef79098016397e1c8fb993d28df79cf41c40a6904ae779f4ec
 
-ENV KAFKA_VERSION=3.0.0 SCALA_VERSION=2.13
+ENV KAFKA_VERSION=2.8.2 SCALA_VERSION=2.13
 
 RUN set -ex; \
   export DEBIAN_FRONTEND=noninteractive; \
